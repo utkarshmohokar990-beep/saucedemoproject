@@ -16,6 +16,7 @@ public class BaseTest {
     protected WaitUtils wait;
     
     //hrllo
+    //hi
     @BeforeClass
     public void setup() {
         String browser = ConfigReader.getProperties("browser");
