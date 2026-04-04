@@ -15,8 +15,6 @@ public class BaseTest {
     protected WebDriver driver;
     protected WaitUtils wait;
     
-    //hrllo
-    //
     @BeforeClass
     public void setup() {
         String browser = ConfigReader.getProperties("browser");
