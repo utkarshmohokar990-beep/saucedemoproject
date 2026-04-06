@@ -1,6 +1,6 @@
 package com.saucedemo.automation.pages;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.By; 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -45,6 +45,12 @@ public class LoginPage{
 		wait.waitForElementToBeClickable(loginButton);
 		passwordField.click();
 	}
+	
+	public String getTitle() {
+		return driver.getTitle();
+		
+	}
+	
 	
 	
 	
