@@ -1,5 +1,7 @@
 package com.saucedemo.automation.pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;  
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,6 +21,7 @@ public class LoginPage{
 		PageFactory.initElements(driver, this);
 	}
 	
+	
 	@FindBy(css="#user-name")
 	private WebElement usernameField;
 	
@@ -27,6 +30,15 @@ public class LoginPage{
 	
 	@FindBy(xpath="//*[@id=\"login-button\"]")
 	private WebElement loginButton;
+	
+	@FindBy(xpath="//*[@data-test=\"error\"]")
+	private WebElement errorTextMessage;
+	
+	@FindBy(xpath="//*[@id=\"react-burger-menu-btn\"]")
+	private WebElement burgerMenu;
+	
+	@FindBy(xpath="//*[@id=\"logout_sidebar_link\"]")
+	private WebElement logout_sidebar;
 	
 	
 	public void clickAndFillUsername(String username) {
@@ -43,13 +55,41 @@ public class LoginPage{
 	
 	public void clickOnLoginButton() {
 		wait.waitForElementToBeClickable(loginButton);
-		passwordField.click();
+		loginButton.click();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2000));
+	
 	}
 	
 	public String getTitle() {
 		return driver.getTitle();
 		
 	}
+	
+	public String getEmptyMessage() {
+		wait.waitForVisibilityOfElement(errorTextMessage);
+		return errorTextMessage.getText();
+		
+	}
+	
+	public void clickOnMenu() {
+		wait.waitForVisibilityOfElement(burgerMenu);
+		burgerMenu.click();
+	}	
+	
+	public void clickOnLogout() {
+		wait.waitForVisibilityOfElement(logout_sidebar);
+		logout_sidebar.click();
+	}	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

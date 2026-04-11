@@ -6,8 +6,9 @@
       <class name="com.saucedemo.automation.test.LoginTest">
         <methods>
           <include name="tearDown"/>
-          <include name="verifyLogin"/>
+          <include name="veriyLoginwithEmptyPassword"/>
           <include name="setup"/>
+          <include name="veriyLoginwithEmptyUsername"/>
         </methods>
       </class> <!-- com.saucedemo.automation.test.LoginTest -->
     </classes>

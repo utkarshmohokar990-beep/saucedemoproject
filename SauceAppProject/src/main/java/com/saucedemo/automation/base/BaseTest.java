@@ -5,7 +5,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 
 import com.saucedemo.automation.utils.ConfigReader;
 import com.saucedemo.automation.utils.WaitUtils;
@@ -15,7 +17,7 @@ public class BaseTest {
     protected WebDriver driver;
     protected WaitUtils wait;
     
-    @BeforeClass
+    @BeforeMethod
     public void setup() {
         String browser = ConfigReader.getProperties("browser");
         
@@ -37,7 +39,7 @@ public class BaseTest {
         driver.get(ConfigReader.getProperties("url"));
     }
     
-    @AfterClass
+    @AfterMethod
     public void tearDown() {
         if (driver != null) {
             driver.quit();
